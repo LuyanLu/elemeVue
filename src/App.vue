@@ -35,7 +35,7 @@ export default {
       position: absolute;
       width: 1rem;
       height: 1rem;
-      background-image: url('./images/loading.png');
+      background-image: url('../static/images/loading.png');
       background-size: 100% auto;
       background-position: 0 -1rem;
       -webkit-animation: load-animate 3.6s steps(6) infinite,

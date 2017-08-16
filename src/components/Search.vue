@@ -3,9 +3,14 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    name: 'search',
+    data () {
+      return {}
+    }
+  }
 </script>
 
-<style>
+<style lang="less">
 
 </style>

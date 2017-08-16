@@ -6,7 +6,7 @@ export default {
   // 得到假密码
   getpwd: (state) => state.password,
   // 得到是否加载中
-  getloading: (state) => state.isLoading,
+  getLoading: (state) => state.isLoading,
   // 得到当前所在页标签
   getwhichpage: (state) => state.whichPage,
   // 得到热搜词

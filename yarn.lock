@@ -5609,6 +5609,10 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
+swiper@^3.4.2:
+  version "3.4.2"
+  resolved "http://registry.npm.taobao.org/swiper/download/swiper-3.4.2.tgz#39d6b410b1a39833e1f72d3b72999df5f5e38392"
+
 table@^3.7.8:
   version "3.8.3"
   resolved "http://registry.npm.taobao.org/table/download/table-3.8.3.tgz#2bbc542f0fda9861a755d3947fefd8b3f513855f"
@@ -5917,6 +5921,12 @@ void-elements@^2.0.0:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/void-elements/download/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
+vue-awesome-swiper@^2.6.2:
+  version "2.6.2"
+  resolved "http://registry.npm.taobao.org/vue-awesome-swiper/download/vue-awesome-swiper-2.6.2.tgz#e268882b2be1cef738226270b820d8e63277b689"
+  dependencies:
+    swiper "^3.4.2"
+
 vue-axios@^2.0.2:
   version "2.0.2"
   resolved "http://registry.npm.taobao.org/vue-axios/download/vue-axios-2.0.2.tgz#0fe5a69f1edb09a1cd6c4a7f88c74d2fb7fe1778"
@@ -5953,12 +5963,6 @@ vue-style-loader@^3.0.0, vue-style-loader@^3.0.1:
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
-
-vue-swipe@^2.0.3:
-  version "2.0.3"
-  resolved "http://registry.npm.taobao.org/vue-swipe/download/vue-swipe-2.0.3.tgz#03b71d04a819b5f56efa09cd82658c30e8c846c5"
-  dependencies:
-    wind-dom "0.0.3"
 
 vue-template-compiler@^2.3.3:
   version "2.4.2"
@@ -6087,10 +6091,6 @@ wide-align@^1.1.0:
   resolved "http://registry.npm.taobao.org/wide-align/download/wide-align-1.1.2.tgz#571e0f1b0604636ebc0dfc21b0339bbe31341710"
   dependencies:
     string-width "^1.0.2"
-
-wind-dom@0.0.3:
-  version "0.0.3"
-  resolved "http://registry.npm.taobao.org/wind-dom/download/wind-dom-0.0.3.tgz#3456e3d959dbebdcbf76ca68c6a4e8142f26360f"
 
 window-size@0.1.0:
   version "0.1.0"
