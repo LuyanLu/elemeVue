@@ -15,7 +15,9 @@ Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 
 setDPR()
-remChange()
+setTimeout(() => {
+  remChange()
+}, 100)
 
 new Vue({
   el: '#app',

@@ -86,7 +86,7 @@
         color: #52250a;
         background: #ffd930;
         padding: .02rem;
-        border-radius: .01rem;
+        border-radius: 1px;
         margin-right: .04rem;
         vertical-align: top;
       }
@@ -102,7 +102,7 @@
         line-height: .3rem;
         text-align: center;
         color: @com_gray2;
-        border: .01rem solid #ddd;
+        border: 1px solid #ddd;
         border-radius: .02rem;
       }
     }
@@ -129,12 +129,12 @@
       .zsd {
         color: @baseBlue;
         background: #fff;
-        border: .01rem solid @baseBlue;
+        border: 1px solid @baseBlue;
       }
       .fnzs {
         color: #fff;
         background: @baseBlue;
-        border: .01rem solid @baseBlue;
+        border: 1px solid @baseBlue;
       }
     }
     .business-price {

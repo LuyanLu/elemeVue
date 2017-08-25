@@ -10,7 +10,7 @@ export default {
     commit('SET_LOADING', platform)
   },
   // 改变当前页
-  setWhichpage ({commit}, platform) {
+  setWhichPage ({commit}, platform) {
     commit('SET_WHICH_PAGE', platform)
   },
   // 首页加载更多

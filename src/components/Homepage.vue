@@ -39,16 +39,9 @@
     data () {
       return {
         showMe: false,
-        searchWord: ''
+        searchWord: '',
+        isLoadingMore: false
       }
-    },
-    mounted () {
-      this.$store.dispatch('setLoading', true)
-      let time = Math.floor(Math.random() * 2000)
-      setTimeout(() => {
-        this.$store.dispatch('setLoading', false)
-        this.showMe = true
-      }, time)
     },
     components: {
       oneBusiness,
@@ -58,6 +51,19 @@
     created () {
       this.fetchFalseHotWord()
       this.fetchFalseBusinessBrief()
+    },
+    mounted () {
+      this.$store.dispatch('setLoading', true)
+      this.$store.dispatch('setWhichPage', 'homepage')
+      let time = Math.floor(Math.random() * 2000)
+      setTimeout(() => {
+        this.$store.dispatch('setLoading', false)
+        this.showMe = true
+      }, time)
+      window.addEventListener('scroll', this.dispatchLoad)
+    },
+    beforeDestroy () {
+      window.removeEventListener('scroll', this.dispatchLoad)
     },
     computed: {
       ...mapGetters({
@@ -72,7 +78,30 @@
         'fetchFalseBusinessBrief'
       ]),
       enterSearch () {
+        if (this.searchWord.trim() === '') {
+          return
+        }
         this.$router.push('/search/' + this.searchWord)
+      },
+      loadMore () {
+        if (this.falseBusinessBrief.length > 15) return
+        this.$store.dispatch('setLoading', true)
+        if (!this.isLoadingMore) {
+          this.isloadingMore = true
+          setTimeout(() => {
+            this.$store.dispatch('setLoading', false)
+            if (this.falseBusinessBrief.length <= 15) {
+              this.$store.dispatch('setHomepageMore', [...this.falseBusinessBrief, ...(this.falseBusinessBrief.slice(0, 5))])
+              this.isloadingMore = false
+            }
+          }, 1000)
+        }
+      },
+      dispatchLoad () {
+        let dscrollTop = document.body.scrollTop || document.documentElement.scrollTop
+        if (document.documentElement.offsetHeight <= (dscrollTop + window.innerHeight + 1)) {
+          this.loadMore()
+        }
       }
     }
   }

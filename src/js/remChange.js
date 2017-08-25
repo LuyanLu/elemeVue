@@ -1,6 +1,5 @@
 export function setDPR () {
   var viewport = document.querySelector('meta[name=viewport]')
-  console.log(window.devicePixelRatio)
   if (window.devicePixelRatio === 1) {
     viewport.setAttribute('content', 'width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no')
   }
@@ -16,15 +15,12 @@ export function remChange () {
   var widthProportion = function () {
     var doc = document.body || document.documentElement
     var p = doc.clientWidth
-    console.log('w' + document.body.clientWidth)
-    console.log('p' + p)
     return p / 10
   }
   var changePage = function () {
     document.getElementsByTagName('html')[0].setAttribute('style', 'font-size:' + widthProportion() + 'px !important')
   }
   changePage()
-  console.log('evt' + resizeEvt)
   window.addEventListener(resizeEvt, changePage, false)
 }
 
