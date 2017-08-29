@@ -2,9 +2,9 @@
   <div class="business-box" v-if="showMe">
     <section class="business-top">
       <div class="blur-mask"></div>
-      <div class="top-wrapper">
+      <div class="top-wrapper" v-if="businessInfo.shop_name">
         <div class="top-img">
-          <img src="../../static/images/shop-logo.png" alt="">
+          <img src="../assets/shop-logo.png" alt="">
         </div>
         <div class="top-word">
           <h3 class="ell">{{ businessInfo.shop_name }}</h3>
@@ -62,6 +62,7 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import commodityList from './smallComponents/commodityList'
   import ratingList from './smallComponents/ratingList'
   import shoppingCar from './smallComponents/shoppingCar'
@@ -87,19 +88,17 @@
       }
     },
     computed: {
-      isLogin () {
-        return this.$store.getters.getLogin
-      },
-      businessInfo () {
-        return this.$store.getters.getFalseBusinessInfo[this.$route.params.id]
-      }
+      ...mapGetters({
+        isLogin: 'getLogin',
+        businessInfo: 'getFalseBusinessInfo'
+      })
     },
     created () {
       this.$store.dispatch('setLoading', true)
       let time = Math.floor(Math.random() * 2000)
       setTimeout(() => {
         this.$store.dispatch('setLoading', false)
-        this.$store.dispatch('fetchFalseBusinessInfo')
+        this.$store.dispatch('fetchFalseBusinessInfo', this.$route.params.id)
         this.showMe = true
       }, time)
       window.addEventListener('resize', this.watchHeight)
@@ -108,6 +107,7 @@
       window.removeEventListener('resize', this.watchHeight)
     },
     methods: {
+      // 节流
       watchHeight () {
         clearTimeout(heightTimer)
         let heightTimer = setTimeout(() => {
@@ -226,7 +226,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background: url(../../static/images/shop-logo.png) no-repeat center;
+        background: url(../assets/shop-logo.png) no-repeat center;
         background-size: cover;
         filter: blur(.08rem);
         z-index: 1;

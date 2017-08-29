@@ -25,7 +25,7 @@
     </div>
     <div class="comment" v-for="(item, index) in businessInfo.evaluate" :key="index">
       <div class="user-img">
-        <img src="../../../static/images/slider-pic/slider-pic2.jpeg" alt="">
+        <img src="../../assets/slider-pic2.jpeg" alt="">
       </div>
       <div class="user-comment">
         <div class="comment-title flex_align">

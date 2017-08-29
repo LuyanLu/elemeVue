@@ -4,7 +4,7 @@
     <div class="order-box">
       <div class="order-one" v-for="(item, index) in getFalseOrder" :key="index">
         <div class="order-img">
-          <img src="../../static/images/shop-logo.png" alt="">
+          <img src="../assets/shop-logo.png" alt="">
         </div>
         <div class="order-info">
           <header class="order-info-title">
@@ -46,9 +46,12 @@
         showMe: false
       }
     },
-    created () {
+    mounted () {
       if (!this.getLogin) {
-        this.$router.replace('/login')
+        this.showMe = true
+        this.$nextTick(() => {
+          this.$router.replace('/login')
+        })
       } else {
         this.$store.dispatch('setLoading', true)
         let time = Math.floor(Math.random() * 2000)
@@ -56,6 +59,9 @@
           this.$store.dispatch('setLoading', false)
           this.$store.dispatch('setWhichPage', 'order')
           this.$nextTick(() => {
+            if (!this.$store.state.falseOrder.length) {
+              this.$store.dispatch('fetchFalseOrder')
+            }
             this.showMe = true
           })
         }, time)
@@ -65,6 +71,7 @@
 </script>
 
 <style lang="less">
+  @import "../less/common.less";
   .order-box {
     margin: 1rem 0 1.2rem;
     .order-one {
@@ -84,7 +91,7 @@
         padding: .2rem .2rem 0 0;
         box-sizing: border-box;
         header.order-info-title {
-          border-bottom: 1px solid #eee;
+          .border-1px(#eee);
           .order-info-name {
             height: .6rem;
             line-height: .6rem;

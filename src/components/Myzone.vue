@@ -1,8 +1,8 @@
 <template>
   <div class="myzone-container">
     <back-bar title="我的"></back-bar>
-    <div class="myzone-user">
-      <img src="../../static/images/slider-pic/slider-pic1.jpeg" alt="">
+    <div class="myzone-user clear">
+      <img src="../assets/slider-pic1.jpeg" alt="">
       <div class="myzone-uid">
         <h3>{{ uname }}</h3>
         <p>188*****888</p>
@@ -92,13 +92,13 @@
       } else {
         this.uname = this.$store.getters.getuname
         this.$store.dispatch('setWhichPage', 'myzone')
-        this.$store.dispatch('fetchFalseOrder')
+//        this.$store.dispatch('fetchFalseOrder')
       }
     }
   }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   .myzone-container {
     .myzone-user {
       width: 10rem;

@@ -39,10 +39,10 @@ export default {
         commit('SET_FALSE_BUSINESS_BRIEF', res.data)
       })
   },
-  fetchFalseBusinessInfo ({commit}) {
+  fetchFalseBusinessInfo ({commit}, platform) {
     Axios.get('api/falseBusinessInfo')
       .then((res) => {
-        commit('SET_BUSINESS_INFO', res.data)
+        commit('SET_BUSINESS_INFO', res.data[platform])
       })
   }
 }
