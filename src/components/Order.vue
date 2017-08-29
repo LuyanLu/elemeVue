@@ -53,18 +53,20 @@
           this.$router.replace('/login')
         })
       } else {
-        this.$store.dispatch('setLoading', true)
-        let time = Math.floor(Math.random() * 2000)
-        setTimeout(() => {
-          this.$store.dispatch('setLoading', false)
+        if (!this.$store.state.falseOrder.length) {
+          this.$store.dispatch('setLoading', true)
+          let time = Math.floor(Math.random() * 2000)
+          setTimeout(() => {
+            this.$store.dispatch('setLoading', false)
+            this.$store.dispatch('setWhichPage', 'order')
+            this.$store.dispatch('fetchFalseOrder')
+          }, time)
+        } else {
           this.$store.dispatch('setWhichPage', 'order')
-          this.$nextTick(() => {
-            if (!this.$store.state.falseOrder.length) {
-              this.$store.dispatch('fetchFalseOrder')
-            }
-            this.showMe = true
-          })
-        }, time)
+        }
+        this.$nextTick(() => {
+          this.showMe = true
+        })
       }
     }
   }
