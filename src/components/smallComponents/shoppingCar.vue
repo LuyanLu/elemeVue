@@ -135,7 +135,7 @@
           }
         }
       },
-      dropping (el) {
+      dropping (el, done) {
         /* eslint-disable no-unused-vars */
         let rf = el.offsetHeight
         this.$nextTick(() => {
@@ -146,6 +146,7 @@
           inner.style.transform = `translate3d(0, 0, 0)`
           el.addEventListener('transitionend', () => {
             this.$refs.carIcon.classList.add('duang')
+            done()
           })
         })
       },
