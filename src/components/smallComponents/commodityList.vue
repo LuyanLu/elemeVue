@@ -70,15 +70,11 @@
     data () {
       return {
         listHeight: [],
-        scrollY: 0,
-        index: 0
+        scrollY: 0
       }
     },
     computed: {
       currentIndex () {
-        if (this.index !== 0) {
-          return this.index
-        }
         for (let i = 0; i < this.listHeight.length; i++) {
           let height1 = this.listHeight[i]
           let height2 = this.listHeight[i + 1]
@@ -127,7 +123,7 @@
         if (!event._constructed) {
           return
         }
-        this.index = index
+        this.currentIndex = index
         let foodsList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook')
         let el = foodsList[index]
         this.foodsScroll.scrollToElement(el, 300)
